@@ -7,7 +7,6 @@ function signin({ providers }) {
   return (
     <>
         <Header />
-
         <div className="flex flex-col items-center justify-center min-w-screen py-2 mt-20 px-14 text-center">
             <img className="w-80" src="http://localhost:3000/_next/image?url=https%3A%2F%2Flinks.papareact.com%2Focw&w=1200&q=75" />
             <div className="mt-40">
@@ -18,8 +17,6 @@ function signin({ providers }) {
                 ))}
             </div>
         </div>
-        
-        
     </>
   )
 }
