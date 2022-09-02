@@ -7,9 +7,18 @@ export default NextAuth({
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      secret: process.env.NEXTAUTH_PUBLIC_SECRET
     }),
   ],
   pages: {
     signIn: "/auth/signin",
+  },
+  callbacks: {
+    async session({ session, token, user }) {
+      session.user.username = session.user.name.toLowerCase(),
+
+      session.user.uid = token.sub;
+      return session;
+    }
   }
 })
