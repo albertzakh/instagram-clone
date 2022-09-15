@@ -18,6 +18,7 @@ import { modalState } from "../atoms/modalAtom";
 
 function Header() {
     const {data: session} = useSession();
+    console.log(session?.user.image)
     const router = useRouter();
 
     const [open, setOpen] = useRecoilState(modalState)
@@ -59,12 +60,11 @@ function Header() {
                     <div className="absolute -top-1 -right-2 text-xs w-5 h-5 bg-red-500 rounded-full flex items-center justify-center animate-pulse text-white">3</div>
                 </div>
 
-
                 <PlusCircleIcon onClick={() => setOpen(true)} className="navBtn" />
                 <UserGroupIcon className="navBtn" />
                 <HeartIcon className="navBtn" />
 
-                <img onClick={signOut} src={session?.user?.image} alt="profile pic" className="h-10 w-10 rounded-full cursor-pointer" />
+                <img onClick={signOut} src={session?.user.image} referrerpolicy="no-referrer" alt="profile pic" className="h-10 w-10 rounded-full cursor-pointer" />
                 </>
             ) : <button onClick={signIn}>Sign In</button>}                
             </div>

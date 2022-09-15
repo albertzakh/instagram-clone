@@ -53,8 +53,6 @@ function Post({ id, username, userImg, img, caption }) {
         }
     }
 
-    console.log(hasLiked)
-
     const sendComment = async (e) => {
         e.preventDefault();
 
@@ -74,7 +72,7 @@ function Post({ id, username, userImg, img, caption }) {
 
         {/* Header */}
         <div className="flex items-center p-5">
-            <img className="rounded-full h-12 w-12 object-contain border p-1 mr-3" src={userImg} alt=""  />
+            <img referrerpolicy="no-referrer" className="rounded-full h-12 w-12 object-contain border p-1 mr-3" src={userImg} alt=""  />
             <p className="font-bold flex-1">{username}</p>
             <DotsHorizontalIcon className="h-5" />
         </div>
@@ -116,7 +114,7 @@ function Post({ id, username, userImg, img, caption }) {
             <div className="ml-10 h-20 overflow-y-scroll scrollbar-thumb-black scrollbar-thin">
                 {comments.map(comment => (
                     <div className="flex items-center space-x-2 mb-3" key={comment.id}>
-                        <img className="h-7 rounded-full" src={comment.data().userImage} />
+                        <img referrerpolicy="no-referrer" className="h-7 rounded-full" src={comment.data().userImage} />
                         <p className="text-sm flex-1"><span className="font-bold mr-2">{comment.data().username}</span>{comment.data().comment}</p>
 
                         <Moment fromNow>

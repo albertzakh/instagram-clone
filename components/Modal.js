@@ -32,7 +32,6 @@ function Modal() {
         const imageRef = ref(storage, `posts/${docRef.id}/image`);
         
         await uploadString(imageRef, selectedFile, "data_url").then(async snapshot => {
-            console.log("Uploaded Image")
             const downloadURL = await getDownloadURL(imageRef);
             await updateDoc(doc(db, "posts", docRef.id), {
                 image: downloadURL
@@ -52,7 +51,6 @@ function Modal() {
 
         reader.onload = (readerEvent) => {
             setSelectedFile(readerEvent.target.result)
-            console.log(readerEvent.target.result)
         }
     }
 
